@@ -3,7 +3,7 @@
     <property name="ivy.version" value="2.2.0"/>
 
     <target name="fetch-jars" depends="install-ivy">
-        <ivy:retrieve pattern="lib/[conf]/[artifact]-[type]-[revision].[ext]" symlink="true"/>
+        <ivy:retrieve pattern="lib/[artifact]-[type]-[revision].[ext]" symlink="true"/>
     </target>
 
     <target name="install-ivy">
@@ -27,7 +27,7 @@
       результат: build/lib/projectWar.war
     -->
     <property name="lib.classpath" value="lib/"/>
-    <target name="clean">
+    <target name="clean" depends="fetch-jars">
         <delete dir="build"/>
     </target>
     <path id="project.classpath">
